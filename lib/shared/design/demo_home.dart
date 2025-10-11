@@ -41,6 +41,7 @@ import 'atoms/price_tag.dart';
 import 'atoms/countdown_badge.dart';
 import 'molecules/tag_selector.dart';
 import 'molecules/consultation_feedback.dart';
+import 'molecules/custom_app_bar.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../features/universities/universities_screen.dart'
     show UniversitiesScreen, selectedCompareProvider;
@@ -92,11 +93,11 @@ class _DemoHomeState extends ConsumerState<DemoHome> {
     final f = ref.watch(universityFilterProvider);
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Moli'),
+      appBar: CustomAppBar(
+        title: 'Moli',
         actions: [
           IconButton(
-            icon: const Icon(Icons.notifications_none),
+            icon: const Icon(Icons.notifications_none_outlined),
             onPressed: () {
               showModalBottomSheet(
                 context: context,
