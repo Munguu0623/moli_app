@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../design_system.dart';
+import '../../../shared/design/design_system.dart';
 
 class CalendarSlotPicker extends StatefulWidget {
   final DateTime initial;

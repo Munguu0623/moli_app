@@ -10,10 +10,10 @@ class AppColors {
   static const error = Color(0xFFEF4444); // Red
   static const info = Color(0xFF3B82F6); // Blue
 
-  // Neutrals - более контрастные
-  static const textPrimary = Color(0xFF111827);
-  static const textSecondary = Color(0xFF6B7280);
-  static const textTertiary = Color(0xFF9CA3AF);
+  // Neutrals - зөөлөн бөгөөд уншигдах чадвартай
+  static const textPrimary = Color(0xFF1F2937); // gray-800 - зөөлөн бараан
+  static const textSecondary = Color(0xFF6B7280); // gray-500
+  static const textTertiary = Color(0xFF9CA3AF); // gray-400
   static const surface = Colors.white;
   static const background = Color(0xFFF9FAFB);
   static const border = Color(0xFFE5E7EB);

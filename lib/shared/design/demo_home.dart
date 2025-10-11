@@ -43,8 +43,6 @@ import 'package:moli_app/core/widgets/organisms/university_compare_table.dart';
 import 'design_system.dart';
 import 'atoms/search_field.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../features/universities/universities_screen.dart'
-    show UniversitiesScreen, selectedCompareProvider;
 
 class DemoHome extends ConsumerStatefulWidget {
   const DemoHome({super.key});
@@ -119,7 +117,7 @@ class _DemoHomeState extends ConsumerState<DemoHome> {
         children: [
           _buildHomeTab(context, f),
           _buildTestsTab(),
-          const UniversitiesScreen(),
+          // const UniversitiesScreen(),
           _buildAdvisorsTab(),
           _buildProfileTab(),
         ],
@@ -127,28 +125,6 @@ class _DemoHomeState extends ConsumerState<DemoHome> {
       bottomNavigationBar: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          CompareDrawer(
-            items: ref.watch(selectedCompareProvider),
-            onCompare: () {
-              final items = ref.read(selectedCompareProvider);
-              if (items.length < 2) {
-                showAppSnack(
-                  context,
-                  'Хамгийн багадаа 2 сургууль сонгоно уу',
-                  success: false,
-                );
-                return;
-              }
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (_) => _UniversityCompareDemo(items: items),
-                ),
-              );
-            },
-            onClear: () {
-              ref.read(selectedCompareProvider.notifier).state = [];
-            },
-          ),
           Container(
             decoration: BoxDecoration(
               color: AppColors.background,
@@ -761,45 +737,8 @@ class _DemoHomeState extends ConsumerState<DemoHome> {
           style: const TextStyle(color: AppColors.textSecondary),
         ),
         const SizedBox(height: 8),
-        Wrap(
-          spacing: 8,
-          children: [
-            AppButton.primary(
-              'МУИС нэмэх',
-              onPressed: () {
-                final current = ref.read(selectedCompareProvider);
-                if (!current.contains('МУИС')) {
-                  ref.read(selectedCompareProvider.notifier).state = [
-                    ...current,
-                    'МУИС',
-                  ];
-                }
-              },
-            ),
-            AppButton.primary(
-              'СЭЗИС нэмэх',
-              onPressed: () {
-                final current = ref.read(selectedCompareProvider);
-                if (!current.contains('СЭЗИС')) {
-                  ref.read(selectedCompareProvider.notifier).state = [
-                    ...current,
-                    'СЭЗИС',
-                  ];
-                }
-              },
-            ),
-            AppButton.primary(
-              'ШУТИС нэмэх',
-              onPressed: () {
-                final current = ref.read(selectedCompareProvider);
-                if (!current.contains('ШУТИС')) {
-                  ref.read(selectedCompareProvider.notifier).state = [
-                    ...current,
-                    'ШУТИС',
-                  ];
-                }
-              },
-            ),
+        Wrap(spacing: 8, children: [
+            
           ],
         ),
         const SizedBox(height: 12),

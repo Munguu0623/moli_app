@@ -2,16 +2,22 @@
 import 'package:flutter/material.dart';
 import '../../../shared/design/design_system.dart';
 import '../atoms/app_card.dart';
+import '../atoms/bookmark_button.dart';
 
 class ArticleCard extends StatelessWidget {
   final String imageUrl;
   final String title;
   final String subtitle;
+  final bool isSaved;
+  final VoidCallback? onSave;
+
   const ArticleCard({
     super.key,
     required this.imageUrl,
     required this.title,
     required this.subtitle,
+    this.isSaved = false,
+    this.onSave,
   });
 
   @override
@@ -58,7 +64,21 @@ class ArticleCard extends StatelessWidget {
                 ],
               ),
             ),
-            const Icon(Icons.chevron_right),
+            const SizedBox(width: 8),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                BookmarkButton(
+                  initial: isSaved,
+                  onChanged: onSave != null ? (_) => onSave!() : null,
+                ),
+                const Icon(
+                  Icons.chevron_right,
+                  color: AppColors.textTertiary,
+                  size: 20,
+                ),
+              ],
+            ),
           ],
         ),
       ),

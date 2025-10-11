@@ -29,7 +29,7 @@ class AdvisorCard extends StatelessWidget {
       child: SizedBox(
         width: 220,
         child: AppCard(
-          padding: const EdgeInsets.all(12),
+          padding: const EdgeInsets.all(8),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:moli_app/shared/design/demo_home.dart';
+import 'package:moli_app/features/home/presentation/home_screen.dart';
 import 'package:moli_app/ui_kit.dart';
 
 void main() {
@@ -13,10 +13,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Moli App',
       theme: buildAppTheme(),
       debugShowCheckedModeBanner: false,
-      home: const DemoHome(),
+      home: const HomeScreen(),
     );
   }
 }
