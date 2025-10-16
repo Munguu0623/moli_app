@@ -14,7 +14,7 @@ import '../../../core/widgets/organisms/article_card.dart';
 import '../../../core/widgets/atoms/app_chip.dart';
 import '../../../shared/design/design_system.dart';
 import '../application/home_provider.dart';
-import '../../tests/presentation/test_intro_screen.dart';
+import '../../tests/presentation/tests_screen.dart';
 
 /// Нүүр хуудас - UX doc (home_ux.md) дагуу
 class HomeScreen extends ConsumerWidget {
@@ -55,9 +55,7 @@ class HomeScreen extends ConsumerWidget {
                   child: HeroBanner(
                     onTest: () {
                       Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (_) => const TestIntroScreen(),
-                        ),
+                        MaterialPageRoute(builder: (_) => const TestsScreen()),
                       );
                     },
                     onPremium: () {
