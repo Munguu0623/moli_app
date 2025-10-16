@@ -41,7 +41,7 @@ import 'package:moli_app/core/widgets/organisms/career_card.dart';
 import 'package:moli_app/core/widgets/organisms/university_card.dart';
 import 'package:moli_app/core/widgets/organisms/university_compare_table.dart';
 import 'design_system.dart';
-import 'atoms/search_field.dart';
+import 'package:moli_app/core/widgets/atoms/search_field.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class DemoHome extends ConsumerStatefulWidget {

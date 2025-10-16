@@ -6,6 +6,7 @@ import 'package:gap/gap.dart';
 import '../../../core/widgets/molecules/hero_banner.dart';
 import '../../../core/widgets/molecules/section_header.dart';
 import '../../../core/widgets/molecules/horizontal_scroller.dart';
+import '../../../core/widgets/molecules/custom_app_bar.dart';
 import '../../../core/widgets/organisms/career_card.dart';
 import '../../../core/widgets/organisms/university_card.dart';
 import '../../../core/widgets/organisms/advisor_card.dart';
@@ -13,6 +14,7 @@ import '../../../core/widgets/organisms/article_card.dart';
 import '../../../core/widgets/atoms/app_chip.dart';
 import '../../../shared/design/design_system.dart';
 import '../application/home_provider.dart';
+import '../../tests/presentation/test_intro_screen.dart';
 
 /// Нүүр хуудас - UX doc (home_ux.md) дагуу
 class HomeScreen extends ConsumerWidget {
@@ -29,7 +31,18 @@ class HomeScreen extends ConsumerWidget {
 
     return Scaffold(
       backgroundColor: AppColors.background,
-      appBar: _buildAppBar(context),
+      appBar: CustomAppBar(
+        title: 'Moli',
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.notifications_none_outlined),
+            onPressed: () {
+              // TODO: Show notification sheet
+              debugPrint('Show notifications');
+            },
+          ),
+        ],
+      ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -41,8 +54,11 @@ class HomeScreen extends ConsumerWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: HeroBanner(
                     onTest: () {
-                      // TODO: Navigate to test screen
-                      debugPrint('Navigate to test');
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) => const TestIntroScreen(),
+                        ),
+                      );
                     },
                     onPremium: () {
                       // TODO: Show premium paywall
@@ -348,34 +364,6 @@ class HomeScreen extends ConsumerWidget {
           ],
         ),
       ),
-    );
-  }
-
-  PreferredSizeWidget _buildAppBar(BuildContext context) {
-    return AppBar(
-      backgroundColor: AppColors.surface,
-      elevation: 0,
-      title: const Text(
-        'Moli',
-        style: TextStyle(
-          fontSize: 24,
-          fontWeight: FontWeight.w900,
-          color: AppColors.primary,
-          letterSpacing: 0.5,
-        ),
-      ),
-      actions: [
-        IconButton(
-          icon: const Icon(
-            Icons.notifications_none_outlined,
-            color: AppColors.textPrimary,
-          ),
-          onPressed: () {
-            // TODO: Show notification sheet
-            debugPrint('Show notifications');
-          },
-        ),
-      ],
     );
   }
 }

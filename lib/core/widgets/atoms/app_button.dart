@@ -39,45 +39,52 @@ class AppButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final child = switch (type) {
-      AppButtonType.icon => Icon(icon, color: AppColors.textPrimary),
-      _ => Text(label!, style: const TextStyle(color: Colors.white)),
-    };
-
+    final isDisabled = onPressed == null;
     BoxDecoration? deco;
     Color? textColor;
 
     switch (type) {
       case AppButtonType.primary:
-        deco = const BoxDecoration(
-          gradient: AppGradients.brand,
-          borderRadius: BorderRadius.all(Radius.circular(AppRadius.button)),
-          boxShadow: [
-            BoxShadow(
-              color: Color(0x1F4A6CF7),
-              blurRadius: 12,
-              offset: Offset(0, 6),
-            ),
-          ],
+        deco = BoxDecoration(
+          gradient: isDisabled ? null : AppGradients.brand,
+          color: isDisabled ? AppColors.border.withOpacity(0.5) : null,
+          borderRadius: const BorderRadius.all(
+            Radius.circular(AppRadius.button),
+          ),
+          boxShadow:
+              isDisabled
+                  ? null
+                  : const [
+                    BoxShadow(
+                      color: Color(0x1F4A6CF7),
+                      blurRadius: 12,
+                      offset: Offset(0, 6),
+                    ),
+                  ],
         );
-        textColor = Colors.white;
+        textColor = isDisabled ? AppColors.textTertiary : Colors.white;
         break;
       case AppButtonType.secondary:
         deco = BoxDecoration(
           color: Colors.transparent,
           borderRadius: BorderRadius.circular(AppRadius.button),
-          border: Border.all(color: AppColors.primary, width: 1.4),
+          border: Border.all(
+            color: isDisabled ? AppColors.border : AppColors.primary,
+            width: 1.4,
+          ),
         );
-        textColor = AppColors.primary;
+        textColor = isDisabled ? AppColors.textTertiary : AppColors.primary;
         break;
       case AppButtonType.ghost:
         deco = BoxDecoration(
           color: Colors.transparent,
           borderRadius: BorderRadius.circular(AppRadius.button),
         );
-        textColor = AppColors.textSecondary;
+        textColor =
+            isDisabled ? AppColors.textTertiary : AppColors.textSecondary;
         break;
       case AppButtonType.icon:
+        textColor = isDisabled ? AppColors.textTertiary : AppColors.textPrimary;
         break;
     }
 
@@ -96,10 +103,11 @@ class AppButton extends StatelessWidget {
             fontWeight: FontWeight.w600,
             fontSize: 16,
           ),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [if (type == AppButtonType.icon) child else child],
-          ),
+          textAlign: TextAlign.center,
+          child:
+              type == AppButtonType.icon
+                  ? Icon(icon, color: textColor)
+                  : Text(label!),
         ),
       ),
     );
