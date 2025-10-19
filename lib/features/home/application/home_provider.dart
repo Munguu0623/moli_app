@@ -2,8 +2,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../domain/entities/career.dart';
 import '../domain/entities/university.dart';
-import '../domain/entities/advisor.dart';
 import '../domain/entities/article.dart';
+import '../domain/entities/course_bundle.dart';
+import '../domain/entities/trending_tag.dart';
 import '../data/mock_data.dart';
 
 /// Нүүр хуудасны мэргэжлийн жагсаалт
@@ -16,9 +17,9 @@ final homeUniversitiesProvider = Provider<List<University>>((ref) {
   return mockUniversities;
 });
 
-/// Нүүр хуудасны зөвлөхийн жагсаалт
-final homeAdvisorsProvider = Provider<List<Advisor>>((ref) {
-  return mockAdvisors;
+/// Нүүр хуудасны хичээлийн багцууд
+final homeCourseBundlesProvider = Provider<List<CourseBundle>>((ref) {
+  return mockCourseBundles;
 });
 
 /// Нүүр хуудасны нийтлэлийн жагсаалт
@@ -26,12 +27,12 @@ final homeArticlesProvider = Provider<List<Article>>((ref) {
   return mockArticles;
 });
 
-/// Trending tags
-final trendingTagsProvider = Provider<List<String>>((ref) {
+/// Trending tags - эрэлт хэрэгцээний мэдээлэлтэй
+final trendingTagsProvider = Provider<List<TrendingTag>>((ref) {
   return mockTrendingTags;
 });
 
 /// Сонгогдсон trending tag
-final selectedTrendingTagProvider = StateProvider<String?>((ref) {
+final selectedTrendingTagProvider = StateProvider<TrendingTag?>((ref) {
   return null;
 });

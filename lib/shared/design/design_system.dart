@@ -8,6 +8,7 @@ class AppColors {
   static const accent = Color(0xFFF59E0B); // Amber
   static const success = Color(0xFF10B981); // Emerald
   static const error = Color(0xFFEF4444); // Red
+  static const warning = Color(0xFFF59E0B); // Amber/Orange
   static const info = Color(0xFF3B82F6); // Blue
 
   // Neutrals - зөөлөн бөгөөд уншигдах чадвартай
@@ -18,12 +19,12 @@ class AppColors {
   static const background = Color(0xFFF9FAFB);
   static const border = Color(0xFFE5E7EB);
 
-  // Vibrant chips - более яркие пастельные
-  static const chipBlue = Color(0xFFDDD6FE);
-  static const chipPurple = Color(0xFFEDE9FE);
-  static const chipOrange = Color(0xFFFED7AA);
-  static const chipGreen = Color(0xFFD1FAE5);
-  static const chipPink = Color(0xFFFCE7F3);
+  // Vibrant chips - илүү тодорхой өнгөтэй пастель
+  static const chipBlue = Color(0xFFDDD6FE); // Лаванда
+  static const chipPurple = Color(0xFFE9D5FF); // Ягаан пастель
+  static const chipOrange = Color(0xFFFFDDB3); // Алтан шар
+  static const chipGreen = Color(0xFFBFEFD5); // Минт ногоон
+  static const chipPink = Color(0xFFFFDAE9); // Ягаан бараан
 }
 
 class AppGradients {

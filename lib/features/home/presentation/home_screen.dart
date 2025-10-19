@@ -9,12 +9,13 @@ import '../../../core/widgets/molecules/horizontal_scroller.dart';
 import '../../../core/widgets/molecules/custom_app_bar.dart';
 import '../../../core/widgets/organisms/career_card.dart';
 import '../../../core/widgets/organisms/university_card.dart';
-import '../../../core/widgets/organisms/advisor_card.dart';
+import '../../../core/widgets/organisms/course_bundle_card.dart';
 import '../../../core/widgets/organisms/article_card.dart';
 import '../../../core/widgets/atoms/app_chip.dart';
 import '../../../shared/design/design_system.dart';
 import '../application/home_provider.dart';
 import '../../tests/presentation/tests_screen.dart';
+import 'course_detail_screen.dart';
 
 /// Нүүр хуудас - UX doc (home_ux.md) дагуу
 class HomeScreen extends ConsumerWidget {
@@ -24,7 +25,7 @@ class HomeScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final careers = ref.watch(homeCareersProvider);
     final universities = ref.watch(homeUniversitiesProvider);
-    final advisors = ref.watch(homeAdvisorsProvider);
+    final courses = ref.watch(homeCourseBundlesProvider);
     final articles = ref.watch(homeArticlesProvider);
     final trendingTags = ref.watch(trendingTagsProvider);
     final selectedTag = ref.watch(selectedTrendingTagProvider);
@@ -70,14 +71,14 @@ class HomeScreen extends ConsumerWidget {
 
             const Gap(24),
 
-            // Premium Video Section (Advisors)
+            // Course Bundle Section
             Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: SectionHeader(
-                    '🎥 Видео зөвлөгөө',
+                    '🎥 Видео хичээлүүд',
                     onSeeAll: () {
-                      // TODO: Navigate to advisors list
-                      debugPrint('Navigate to advisors');
+                      // TODO: Navigate to courses list screen
+                      debugPrint('Navigate to courses list');
                     },
                   ),
                 )
@@ -89,22 +90,26 @@ class HomeScreen extends ConsumerWidget {
               padding: const EdgeInsets.only(left: 16),
               child: HorizontalScroller(
                 children:
-                    advisors
+                    courses
                         .asMap()
                         .entries
                         .map(
                           (entry) => GestureDetector(
                             onTap: () {
-                              // TODO: Navigate to advisor detail
-                              debugPrint('Advisor: ${entry.value.name}');
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder:
+                                      (_) => CourseDetailScreen(
+                                        course: entry.value,
+                                      ),
+                                ),
+                              );
                             },
-                            child: AdvisorCard(
-                                  name: entry.value.name,
+                            child: CourseBundleCard(
                                   title: entry.value.title,
-                                  imageUrl: entry.value.imageUrl,
-                                  rating: entry.value.rating,
-                                  price: entry.value.price,
-                                  locked: false,
+                                  thumbnailUrl: entry.value.thumbnailUrl,
+                                  totalDuration: entry.value.totalDuration,
+                                  totalLessons: entry.value.totalLessons,
                                 )
                                 .animate()
                                 .fadeIn(
@@ -139,25 +144,29 @@ class HomeScreen extends ConsumerWidget {
                         duration: 400.ms,
                         delay: 500.ms,
                       ),
-                  const Gap(12),
+                  const Gap(16),
                   Wrap(
-                    spacing: 8,
-                    runSpacing: 8,
+                    spacing: 10,
+                    runSpacing: 10,
                     children:
                         trendingTags
                             .asMap()
                             .entries
                             .map(
                               (entry) => AppChip(
-                                    entry.value,
-                                    selected: selectedTag == entry.value,
+                                    entry.value.label,
+                                    selected:
+                                        selectedTag?.label == entry.value.label,
+                                    demandLevel: entry.value.demandLevel,
+                                    demandText: entry.value.demandText,
                                     onTap: () {
                                       ref
                                           .read(
                                             selectedTrendingTagProvider
                                                 .notifier,
                                           )
-                                          .state = selectedTag == entry.value
+                                          .state = selectedTag?.label ==
+                                                  entry.value.label
                                               ? null
                                               : entry.value;
                                     },

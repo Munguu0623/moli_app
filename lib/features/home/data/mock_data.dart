@@ -1,9 +1,13 @@
 // lib/features/home/data/mock_data.dart
 import 'package:flutter/material.dart';
+import '../../../core/widgets/atoms/app_chip.dart';
 import '../domain/entities/career.dart';
 import '../domain/entities/university.dart';
 import '../domain/entities/advisor.dart';
 import '../domain/entities/article.dart';
+import '../domain/entities/course_bundle.dart';
+import '../domain/entities/lesson.dart';
+import '../domain/entities/trending_tag.dart';
 
 /// Mock мэргэжлийн жагсаалт
 final mockCareers = [
@@ -151,14 +155,268 @@ final mockAdvisors = [
   ),
 ];
 
-/// Mock trending tags
+/// Mock хичээлийн багцууд (Course Bundles)
+final mockCourseBundles = [
+  CourseBundle(
+    id: '1',
+    title: 'Мэргэжил сонгох бүрэн гарын авлага',
+    description: 'Мэргэжлээ зөв сонгож, карер төлөвлөлт хийх',
+    thumbnailUrl:
+        'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=225&fit=crop',
+    totalDuration: '1 цаг 25 мин',
+    totalLessons: 6,
+    lessons: const [
+      Lesson(
+        id: '1-1',
+        title: 'Мэргэжил гэж юу вэ?',
+        duration: '8:30',
+        youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        order: 1,
+      ),
+      Lesson(
+        id: '1-2',
+        title: 'Өөрийнхөө сонирхол, авъяасыг тодорхойлох',
+        duration: '15:20',
+        youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        order: 2,
+      ),
+      Lesson(
+        id: '1-3',
+        title: 'Боломжит мэргэжлүүдийг судлах арга',
+        duration: '12:45',
+        youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        order: 3,
+      ),
+      Lesson(
+        id: '1-4',
+        title: 'Зах зээлийн эрэлт хэрэгцээг ойлгох',
+        duration: '18:15',
+        youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        order: 4,
+      ),
+      Lesson(
+        id: '1-5',
+        title: 'Мэргэжилтнүүдтэй ярилцлага хийх',
+        duration: '14:50',
+        youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        order: 5,
+      ),
+      Lesson(
+        id: '1-6',
+        title: 'Эцсийн шийдвэр гаргах',
+        duration: '15:40',
+        youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        order: 6,
+      ),
+    ],
+  ),
+  CourseBundle(
+    id: '2',
+    title: 'IT карер эхлүүлэх',
+    description: 'Программист болох бүх мэдлэг, зөвлөгөө',
+    thumbnailUrl:
+        'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=225&fit=crop',
+    totalDuration: '2 цаг 10 мин',
+    totalLessons: 8,
+    lessons: const [
+      Lesson(
+        id: '2-1',
+        title: 'IT салбарын танилцуулга',
+        duration: '10:20',
+        youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        order: 1,
+      ),
+      Lesson(
+        id: '2-2',
+        title: 'Программ хангамжийн хөгжүүлэгч гэж хэн бэ?',
+        duration: '12:30',
+        youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        order: 2,
+      ),
+      Lesson(
+        id: '2-3',
+        title: 'Анхны программчлалын хэл сонгох',
+        duration: '18:45',
+        youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        order: 3,
+      ),
+      Lesson(
+        id: '2-4',
+        title: 'Портфолио бүтээх',
+        duration: '22:15',
+        youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        order: 4,
+      ),
+      Lesson(
+        id: '2-5',
+        title: 'GitHub ашиглах заавар',
+        duration: '16:40',
+        youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        order: 5,
+      ),
+      Lesson(
+        id: '2-6',
+        title: 'Анхны ажилдаа орох',
+        duration: '19:30',
+        youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        order: 6,
+      ),
+      Lesson(
+        id: '2-7',
+        title: 'Ярилцлагад бэлтгэх',
+        duration: '20:50',
+        youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        order: 7,
+      ),
+      Lesson(
+        id: '2-8',
+        title: 'Карерын хөгжил',
+        duration: '9:30',
+        youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        order: 8,
+      ),
+    ],
+  ),
+  CourseBundle(
+    id: '3',
+    title: 'Их сургуульд орох бэлтгэл',
+    description: 'ЭЕШ-ээс элсэлт хүртэлх бүх зөвлөмж',
+    thumbnailUrl:
+        'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&h=225&fit=crop',
+    totalDuration: '1 цаг 45 мин',
+    totalLessons: 7,
+    lessons: const [
+      Lesson(
+        id: '3-1',
+        title: 'Их сургуулийн систем танилцуулга',
+        duration: '11:20',
+        youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        order: 1,
+      ),
+      Lesson(
+        id: '3-2',
+        title: 'ЭЕШ-д бэлтгэх стратеги',
+        duration: '18:40',
+        youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        order: 2,
+      ),
+      Lesson(
+        id: '3-3',
+        title: 'Их сургууль сонгох аргачлал',
+        duration: '16:25',
+        youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        order: 3,
+      ),
+      Lesson(
+        id: '3-4',
+        title: 'Элсэлтийн материал бэлтгэх',
+        duration: '14:50',
+        youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        order: 4,
+      ),
+      Lesson(
+        id: '3-5',
+        title: 'Тэтгэлэг хөтөлбөрүүд',
+        duration: '13:35',
+        youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        order: 5,
+      ),
+      Lesson(
+        id: '3-6',
+        title: 'Оюутны амьдрал',
+        duration: '12:20',
+        youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        order: 6,
+      ),
+      Lesson(
+        id: '3-7',
+        title: 'Амжилттай элсэх 10 зөвлөмж',
+        duration: '18:15',
+        youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        order: 7,
+      ),
+    ],
+  ),
+  CourseBundle(
+    id: '4',
+    title: 'Карер төлөвлөлтийн мастер класс',
+    description: 'Урт хугацааны карер төлөвлөлт хийх аргачлал',
+    thumbnailUrl:
+        'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=225&fit=crop',
+    totalDuration: '1 цаг 30 мин',
+    totalLessons: 5,
+    lessons: const [
+      Lesson(
+        id: '4-1',
+        title: 'Карер гэж юу вэ?',
+        duration: '10:15',
+        youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        order: 1,
+      ),
+      Lesson(
+        id: '4-2',
+        title: '5 жилийн төлөвлөгөө гаргах',
+        duration: '22:40',
+        youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        order: 2,
+      ),
+      Lesson(
+        id: '4-3',
+        title: 'Чадвар хөгжүүлэх стратеги',
+        duration: '18:30',
+        youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        order: 3,
+      ),
+      Lesson(
+        id: '4-4',
+        title: 'Networking буюу хүний сүлжээ бий болгох',
+        duration: '16:45',
+        youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        order: 4,
+      ),
+      Lesson(
+        id: '4-5',
+        title: 'Төлөвлөгөөгөө хэрэгжүүлэх практик арга',
+        duration: '21:50',
+        youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        order: 5,
+      ),
+    ],
+  ),
+];
+
+/// Mock trending tags - эрэлт хэрэгцээтэй тэмдэглэгээтэй
 const mockTrendingTags = [
-  '#IT',
-  '#Бизнес',
-  '#Анагаах',
-  '#Инженер',
-  '#Дизайн',
-  '#Хууль',
+  TrendingTag(
+    label: '#IT',
+    demandLevel: ChipDemandLevel.hot,
+    demandText: '+45% эрэлт',
+  ),
+  TrendingTag(
+    label: '#Бизнес',
+    demandLevel: ChipDemandLevel.trending,
+    demandText: '2.5K оюутан',
+  ),
+  TrendingTag(
+    label: '#Анагаах',
+    demandLevel: ChipDemandLevel.hot,
+    demandText: '+38% цалин',
+  ),
+  TrendingTag(
+    label: '#Инженер',
+    demandLevel: ChipDemandLevel.stable,
+    demandText: '⭐ Тогтвортой',
+  ),
+  TrendingTag(
+    label: '#Дизайн',
+    demandLevel: ChipDemandLevel.trending,
+    demandText: '+25% ажлын байр',
+  ),
+  TrendingTag(
+    label: '#Хууль',
+    demandLevel: ChipDemandLevel.stable,
+    demandText: '1.8K оюутан',
+  ),
 ];
 
 /// Mock нийтлэл

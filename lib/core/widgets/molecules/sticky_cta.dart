@@ -3,9 +3,16 @@ import 'package:flutter/material.dart';
 import '../atoms/app_button.dart';
 
 class StickyCTA extends StatelessWidget {
-  final String label;
-  final VoidCallback onPressed;
-  const StickyCTA({super.key, required this.label, required this.onPressed});
+  final String? label;
+  final VoidCallback? onPressed;
+  final Widget? child;
+
+  const StickyCTA({super.key, this.label, this.onPressed, this.child})
+    : assert(
+        (label != null && onPressed != null && child == null) ||
+            (child != null && label == null && onPressed == null),
+        'Either provide label+onPressed OR child, not both',
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +30,9 @@ class StickyCTA extends StatelessWidget {
             ),
           ],
         ),
-        child: AppButton.primary(label, onPressed: onPressed, expanded: true),
+        child:
+            child ??
+            AppButton.primary(label!, onPressed: onPressed!, expanded: true),
       ),
     );
   }

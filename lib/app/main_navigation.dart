@@ -4,9 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:moli_app/features/universities/presentation/universities_list_screen.dart';
 import '../features/home/presentation/home_screen.dart';
 import '../features/tests/presentation/tests_screen.dart';
-import '../features/universities/presentation/universities_screen.dart';
-import '../features/advisors/presentation/advisors_screen.dart';
-import '../features/profile/presentation/profile_screen.dart';
+import '../features/advisors/presentation/advisors_list_screen.dart';
+import '../features/occupations/presentation/occupation_categories_screen.dart';
 import '../shared/design/design_system.dart';
 
 /// Сонгогдсон tab-ын index
@@ -25,8 +24,8 @@ class MainNavigationScreen extends ConsumerWidget {
       const HomeScreen(),
       const TestsScreen(),
       const UniversitiesListScreen(),
-      const AdvisorsScreen(),
-      const ProfileScreen(),
+      const AdvisorsListScreen(),
+      const OccupationCategoriesScreen(),
     ];
 
     return Scaffold(
@@ -91,8 +90,8 @@ class MainNavigationScreen extends ConsumerWidget {
                   label: 'Зөвлөх',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.person_outline),
-                  label: 'Профайл',
+                  icon: Icon(Icons.work_outline),
+                  label: 'Мэргэжил',
                 ),
               ],
             ),
