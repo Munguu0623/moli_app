@@ -20,7 +20,6 @@ import 'package:moli_app/core/widgets/molecules/avatar_uploader.dart';
 import 'package:moli_app/core/widgets/molecules/calendar_slot_picker.dart';
 import 'package:moli_app/core/widgets/molecules/chat_bubble.dart';
 import 'package:moli_app/core/widgets/molecules/chat_input_bar.dart';
-import 'package:moli_app/core/widgets/molecules/compare_drawer.dart';
 import 'package:moli_app/core/widgets/molecules/consultation_feedback.dart';
 import 'package:moli_app/core/widgets/molecules/custom_app_bar.dart';
 import 'package:moli_app/core/widgets/molecules/hero_banner.dart';
@@ -40,6 +39,7 @@ import 'package:moli_app/core/widgets/organisms/article_card.dart';
 import 'package:moli_app/core/widgets/organisms/career_card.dart';
 import 'package:moli_app/core/widgets/organisms/university_card.dart';
 import 'package:moli_app/core/widgets/organisms/university_compare_table.dart';
+import 'package:moli_app/features/universities/presentation/universities_list_screen.dart';
 import 'design_system.dart';
 import 'package:moli_app/core/widgets/atoms/search_field.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -117,7 +117,7 @@ class _DemoHomeState extends ConsumerState<DemoHome> {
         children: [
           _buildHomeTab(context, f),
           _buildTestsTab(),
-          // const UniversitiesScreen(),
+          const UniversitiesListScreen(),
           _buildAdvisorsTab(),
           _buildProfileTab(),
         ],

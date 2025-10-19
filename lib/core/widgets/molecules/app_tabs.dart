@@ -40,13 +40,7 @@ class AppTabs extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 12),
-          SizedBox(
-            height: 200,
-            child: TabBarView(
-              physics: const NeverScrollableScrollPhysics(),
-              children: pages,
-            ),
-          ),
+          Expanded(child: TabBarView(children: pages)),
         ],
       ),
     );
