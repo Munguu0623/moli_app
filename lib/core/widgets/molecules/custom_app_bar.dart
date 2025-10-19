@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../shared/design/design_system.dart';
+import '../../../features/profile/application/user_provider.dart';
+import '../../../features/profile/presentation/profile_screen.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
   final String title;
   final List<Widget>? actions;
   final Widget? leading;
@@ -36,7 +39,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final user = ref.watch(userProvider);
     // Notification болон profile widgets үүсгэх
     final defaultActions = <Widget>[];
 
@@ -84,17 +88,21 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 onProfileTap ??
                 () {
                   // Profile screen рүү шилжих
-                  Navigator.of(context).pushNamed('/profile');
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const ProfileScreen(),
+                    ),
+                  );
                 },
             child: CircleAvatar(
               radius: 18,
               backgroundColor: AppColors.primary.withOpacity(0.1),
               backgroundImage:
-                  profileImageUrl != null
-                      ? NetworkImage(profileImageUrl!)
+                  (profileImageUrl ?? user.profileImageUrl) != null
+                      ? NetworkImage(profileImageUrl ?? user.profileImageUrl!)
                       : null,
               child:
-                  profileImageUrl == null
+                  (profileImageUrl ?? user.profileImageUrl) == null
                       ? const Icon(
                         Icons.person_outline,
                         color: AppColors.primary,
