@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:moli_app/app/main_navigation.dart';
+import 'package:moli_app/features/auth/presentation/login_screen.dart';
 import 'package:moli_app/ui_kit.dart';
 
 void main() {
@@ -16,7 +17,11 @@ class MyApp extends StatelessWidget {
       title: 'Moli App',
       theme: buildAppTheme(),
       debugShowCheckedModeBanner: false,
-      home: const MainNavigationScreen(),
+      home: const LoginScreen(),
+      routes: {
+        '/home': (context) => const MainNavigationScreen(),
+        '/login': (context) => const LoginScreen(),
+      },
     );
   }
 }

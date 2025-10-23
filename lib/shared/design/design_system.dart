@@ -137,7 +137,7 @@ class AppSizes {
 ThemeData buildAppTheme() {
   final base = ThemeData(
     useMaterial3: true,
-    fontFamily: 'NotoSans', // Noto Sans Mongolian-г assets-дээ холбоно
+    // Default system font-ыг ашиглах
     scaffoldBackgroundColor: AppColors.background,
     colorScheme: ColorScheme.fromSeed(
       seedColor: AppColors.primary,
