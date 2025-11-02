@@ -1,6 +1,7 @@
 // lib/app/main_navigation.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/legacy.dart';
 import 'package:moli_app/features/universities/presentation/universities_list_screen.dart';
 import '../features/home/presentation/home_screen.dart';
 import '../features/tests/presentation/tests_screen.dart';

@@ -1,6 +1,7 @@
 // lib/features/advisors/application/advisors_provider.dart
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/legacy.dart';
 import '../data/mock_advisors.dart';
 import '../domain/models/advisor.dart';
 import '../domain/models/advisor_filter.dart';

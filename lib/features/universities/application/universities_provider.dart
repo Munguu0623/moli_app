@@ -1,6 +1,7 @@
 // lib/features/universities/application/universities_provider.dart
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/legacy.dart';
 import '../../../core/widgets/atoms/filters/university_filter.dart';
 import '../data/mock_programs.dart';
 import '../data/mock_universities.dart';

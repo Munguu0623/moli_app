@@ -1,5 +1,6 @@
 // lib/features/tests/application/test_provider.dart
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/legacy.dart';
 import '../domain/entities/test_question.dart';
 import '../domain/entities/test_result.dart';
 import '../data/mock_questions.dart';

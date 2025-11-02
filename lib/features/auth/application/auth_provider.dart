@@ -1,5 +1,6 @@
 // lib/features/auth/application/auth_provider.dart
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hooks_riverpod/legacy.dart';
 import '../domain/models/auth_state.dart';
 import '../domain/models/login_method.dart';
 

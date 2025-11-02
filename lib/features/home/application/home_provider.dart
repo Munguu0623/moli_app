@@ -1,5 +1,6 @@
 // lib/features/home/application/home_provider.dart
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/legacy.dart';
 import '../domain/entities/career.dart';
 import '../domain/entities/university.dart';
 import '../domain/entities/article.dart';

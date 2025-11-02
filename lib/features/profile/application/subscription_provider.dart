@@ -1,6 +1,7 @@
 // lib/features/profile/application/subscription_provider.dart
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hooks_riverpod/legacy.dart';
 import 'user_provider.dart';
 
 /// Payment status

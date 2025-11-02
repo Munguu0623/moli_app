@@ -1,5 +1,6 @@
 // lib/app/di/subscription_provider.dart
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/legacy.dart';
 
 /// Premium эрхийн төлөв удирдах provider
 /// Одоогоор mock false (premium биш), дараа нь API-тай холбоно

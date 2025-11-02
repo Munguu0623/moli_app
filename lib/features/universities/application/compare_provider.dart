@@ -1,6 +1,7 @@
 // lib/features/universities/application/compare_provider.dart
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/legacy.dart';
 import '../domain/models/university.dart';
 
 /// Харьцуулах сагс (2-3 их сургууль)

@@ -134,7 +134,7 @@ ThemeData buildAppTheme() {
       color: AppTokens.borderLight,
       thickness: 1,
     ),
-    tabBarTheme: const TabBarTheme(
+    tabBarTheme:  TabBarThemeData(
       indicatorSize: TabBarIndicatorSize.tab,
       indicatorColor: AppTokens.primary,
       labelColor: AppTokens.primary,

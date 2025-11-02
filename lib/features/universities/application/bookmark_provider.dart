@@ -1,6 +1,7 @@
 // lib/features/universities/application/bookmark_provider.dart
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/legacy.dart';
 
 /// Хадгалсан их сургуулиудын ID-ууд
 final bookmarkedUniversitiesProvider =

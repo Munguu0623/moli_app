@@ -1,5 +1,6 @@
 // lib/features/auth/application/login_form_provider.dart
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/legacy.dart';
 import '../domain/models/login_method.dart';
 
 // Login method selector (Phone vs Password)

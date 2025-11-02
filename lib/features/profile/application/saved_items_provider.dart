@@ -1,6 +1,7 @@
 // lib/features/profile/application/saved_items_provider.dart
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/legacy.dart';
 import '../../../features/universities/application/bookmark_provider.dart';
 import '../../../features/universities/data/mock_universities.dart';
 import '../../../features/universities/domain/models/university.dart';

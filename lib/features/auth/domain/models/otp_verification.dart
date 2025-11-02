@@ -1,7 +1,6 @@
-// lib/features/auth/domain/models/otp_verification.dart
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'otp_verification.freezed.dart';
+part 'otp_verification.freezed.dart'; // ← энэ мөрийг нэм
 
 @freezed
 class OtpVerification with _$OtpVerification {
@@ -11,4 +10,20 @@ class OtpVerification with _$OtpVerification {
     required DateTime sentAt,
     @Default(60) int expiresInSeconds,
   }) = _OtpVerification;
+
+  @override
+  // TODO: implement expiresInSeconds
+  int get expiresInSeconds => throw UnimplementedError();
+
+  @override
+  // TODO: implement otp
+  String get otp => throw UnimplementedError();
+
+  @override
+  // TODO: implement phone
+  String get phone => throw UnimplementedError();
+
+  @override
+  // TODO: implement sentAt
+  DateTime get sentAt => throw UnimplementedError();
 }
